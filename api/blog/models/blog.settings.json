@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "name": "Blog"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 200,
+      "minLength": 6
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "blogs"
+    },
+    "Body": {
+      "type": "richtext",
+      "private": false,
+      "required": true,
+      "minLength": 500
+    },
+    "Hero_img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Tag": {
+      "type": "enumeration",
+      "enum": [
+        "weekly",
+        "monthly"
+      ],
+      "default": "monthly"
+    },
+    "Likes": {
+      "collection": "likes",
+      "via": "blog"
+    },
+    "Published": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Comments": {
+      "collection": "comment",
+      "via": "blog"
+    },
+    "Hero_img_title": {
+      "type": "string"
+    }
+  }
+}
