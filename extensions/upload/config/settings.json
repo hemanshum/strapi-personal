@@ -4,6 +4,9 @@
     "accessKeyId": "${process.env.ACCESS_KEY_ID}",
     "secretAccessKey": "${process.env.SECRET_ACCESS_KEY}",
     "endpoint": "sgp1.digitaloceanspaces.com",
+    "optimize": {
+      "resize": false
+    },
     "settings": {
       "awsUploadFolder": "personal"
     },
