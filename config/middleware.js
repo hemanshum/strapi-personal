@@ -2,7 +2,7 @@ module.exports = {
   //...
   settings: {
     cors: {
-      origin: "http://localhost",
+      origin: "http://localhost","https://appx-strapi-srv.herokuapp.com"
     },
   },
 };
